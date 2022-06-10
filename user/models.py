@@ -8,4 +8,9 @@ from django.conf import settings
 class UserModel(AbstractUser):
     # Meta Class : DB 테이블의 이름을 지정
     class Meta:
-        db_table = "user"
+        db_table = "users"
+
+    email = models.EmailField(max_length=100,null=False,unique=True)
+    password = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
